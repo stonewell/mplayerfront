@@ -584,11 +584,14 @@ namespace MPlayerFront
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainFrm";
             this.Text = "MPlayer FrontEnd";
             this.Load += new System.EventHandler(this.MainFrm_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainFrm_FormClosing);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.MainFrm_PreviewKeyDown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainFrm_KeyDown);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);

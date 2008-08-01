@@ -536,5 +536,17 @@ namespace MPlayerFront
             lstOutput.Visible = !lstOutput.Visible;
             showOutputWindowToolStripMenuItem.Checked = lstOutput.Visible;
         }
+
+        private void MainFrm_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+        }
+
+        private void MainFrm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                pauseToolStripMenuItem_Click(sender, new EventArgs());
+            }
+        }
     }
 }
