@@ -22,6 +22,8 @@ namespace MPlayerFront
             txtPassword.Text = Program.Options.Password;
             chkUseSSH.Checked = Program.Options.UseSSH;
             txtPlinkPath.Text = Program.Options.PathToPLink;
+            txtPort.Text = Program.Options.Port.ToString();
+            txtKeyFile.Text = Program.Options.KeyFile;
 
             txtListFiles.Text = Program.Options.Commands.ListFiles;
             txtCdDirectory.Text = Program.Options.Commands.CDDirectory;
@@ -55,6 +57,16 @@ namespace MPlayerFront
 
             Program.Options.UseSSH = chkUseSSH.Checked;
 
+            Program.Options.KeyFile = txtKeyFile.Text.Trim();
+            try
+            {
+                Program.Options.Port = int.Parse(txtPort.Text.Trim());
+            }
+            catch
+            {
+                Program.Options.Port = 22;
+            }
+
             Program.Options.Commands.ListFiles = txtListFiles.Text;
             Program.Options.Commands.CDDirectory = txtCdDirectory.Text;
             Program.Options.Commands.CurrentDirectory = txtCurrentDirectory.Text;
@@ -82,9 +94,35 @@ namespace MPlayerFront
 
         private void button1_Click(object sender, EventArgs e)
         {
+            openFileDialog1.FileName = "plink.exe";
+            openFileDialog1.Filter = "plink.exe|plink.exe";
+
             if (DialogResult.OK == openFileDialog1.ShowDialog(this))
             {
                 txtPlinkPath.Text = openFileDialog1.FileName;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.FileName = "";
+            openFileDialog1.Filter = "Key File |*.ppk";
+
+            if (DialogResult.OK == openFileDialog1.ShowDialog(this))
+            {
+                txtKeyFile.Text = openFileDialog1.FileName;
+            }
+        }
+
+        private void txtPort_Validating(object sender, CancelEventArgs e)
+        {
+            try
+            {
+                int.Parse(txtPort.Text.Trim());
+            }
+            catch
+            {
+                e.Cancel = true;
             }
         }
     }

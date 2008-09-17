@@ -13,6 +13,8 @@ namespace MPlayerFront
         public string Password = null;
         public string PathToPLink = null;
         public bool UseSSH = true;
+        public string KeyFile = null;
+        public int Port = 22;
 
         public Commands Commands = new Commands();
 
@@ -31,7 +33,7 @@ namespace MPlayerFront
 
     public class Controls
     {
-        public string PlayFile = "DISPLAY=:0.0 mplayer -quiet -fs";
+        public string PlayFile = "DISPLAY=:0.0 mplayer -quiet -fs -sid 0";
         public string PlayList = "DISPLAY=:0.0 mplayer -quiet -fs -playlist";
         public string Pause = "p";
         public string Stop = "q";

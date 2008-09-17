@@ -57,6 +57,18 @@ namespace MPlayerFront
             sb.Append(Program.Options.Password);
             sb.Append(" ");
 
+            if (Program.Options.KeyFile != null &&
+                Program.Options.KeyFile.Trim().Length > 0)
+            {
+                sb.Append("-i ");
+                sb.Append(Program.Options.KeyFile);
+                sb.Append(" ");
+            }
+
+            sb.Append("-P ");
+            sb.Append(Program.Options.Port);
+            sb.Append(" ");
+
             sb.Append(cmd);
 
             return sb.ToString();
