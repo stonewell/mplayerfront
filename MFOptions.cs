@@ -34,6 +34,27 @@ namespace MPlayerFront
     public class Controls
     {
         public string PlayFile = "DISPLAY=:0.0 mplayer -quiet -fs -sid 0";
+
+        [XmlIgnore]
+        public string RealPlayFile
+        {
+            get
+            {
+                string cmd = PlayFile;
+
+                if (Program.Options.Controls.Channel2 && !Program.Options.Controls.Channel1)
+                {
+                    cmd += (" -af channels=2:2:1:0:1:1");
+                }
+                else if (!Program.Options.Controls.Channel2 && Program.Options.Controls.Channel1)
+                {
+                    cmd += (" -af channels=1");
+                }
+
+                return cmd;
+            }
+        }
+
         public string PlayList = "DISPLAY=:0.0 mplayer -quiet -fs -playlist";
         public string Pause = "p";
         public string Stop = "q";
@@ -46,6 +67,11 @@ namespace MPlayerFront
         public string PlayListForward = ">";
         public string PlayListBackwords = "<";
         public Seeking Seeking = new Seeking();
+
+        [XmlIgnore]
+        public bool Channel1 = true;
+        [XmlIgnore]
+        public bool Channel2 = true;
     }
 
     public class Seeking

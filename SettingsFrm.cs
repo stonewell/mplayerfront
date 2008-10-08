@@ -44,6 +44,8 @@ namespace MPlayerFront
             //txtB10Mins.Text = Program.Options.Controls.Seeking.B10Mins;
             //txtF1Mins.Text = Program.Options.Controls.Seeking.F1Mins;
             //txtB1Mins.Text = Program.Options.Controls.Seeking.B1Mins;
+            chkChannel1.Checked = Program.Options.Controls.Channel1;
+            chkChannel2.Checked = Program.Options.Controls.Channel2;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -86,6 +88,8 @@ namespace MPlayerFront
             //Program.Options.Controls.Seeking.B10Mins = txtB10Mins.Text;
             //Program.Options.Controls.Seeking.F1Mins = txtF1Mins.Text;
             //Program.Options.Controls.Seeking.B1Mins = txtB1Mins.Text;
+            Program.Options.Controls.Channel1 = chkChannel1.Checked;
+            Program.Options.Controls.Channel2 = chkChannel2.Checked;
 
             Program.SaveOptions();
 

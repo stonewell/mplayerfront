@@ -117,7 +117,7 @@ namespace MPlayerFront
                         UpdateCurrentPlayingFile(playFile);
                     }
 
-                    command_ = new MFCommand(Program.Options.Controls.PlayFile,
+                    command_ = new MFCommand(Program.Options.Controls.RealPlayFile,
                         currentFile_, false);
 
                     if (command_.Execute())
