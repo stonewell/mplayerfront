@@ -25,7 +25,7 @@ namespace MPlayerFront
 
     public class Commands
     {
-        public string ListFiles = "ls -lL";
+        public string ListFiles = "ls -lL --time-style=+%F\\ %T";
         public string CDDirectory = "cd";
         public string CurrentDirectory = "pwd";
         public string StatFiletype = "stat -c%F";
