@@ -34,6 +34,11 @@ namespace MPlayerFront
             this.btnOK = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtPort = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.txtKeyFile = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.txtPlinkPath = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -65,11 +70,9 @@ namespace MPlayerFront
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.button2 = new System.Windows.Forms.Button();
-            this.txtKeyFile = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtPort = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.chkChannel1 = new System.Windows.Forms.CheckBox();
+            this.chkChannel2 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -143,6 +146,49 @@ namespace MPlayerFront
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "General";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // txtPort
+            // 
+            this.txtPort.Location = new System.Drawing.Point(127, 119);
+            this.txtPort.Name = "txtPort";
+            this.txtPort.Size = new System.Drawing.Size(270, 20);
+            this.txtPort.TabIndex = 5;
+            this.txtPort.Validating += new System.ComponentModel.CancelEventHandler(this.txtPort_Validating);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(22, 123);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(29, 13);
+            this.label14.TabIndex = 10;
+            this.label14.Text = "Port:";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(345, 144);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(52, 23);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Browse";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // txtKeyFile
+            // 
+            this.txtKeyFile.Location = new System.Drawing.Point(127, 145);
+            this.txtKeyFile.Name = "txtKeyFile";
+            this.txtKeyFile.Size = new System.Drawing.Size(215, 20);
+            this.txtKeyFile.TabIndex = 6;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(22, 149);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(87, 13);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Path of Key File :";
             // 
             // button1
             // 
@@ -240,7 +286,7 @@ namespace MPlayerFront
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(409, 167);
+            this.tabPage2.Size = new System.Drawing.Size(409, 203);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "File";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -295,6 +341,9 @@ namespace MPlayerFront
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.chkChannel2);
+            this.tabPage3.Controls.Add(this.chkChannel1);
+            this.tabPage3.Controls.Add(this.label15);
             this.tabPage3.Controls.Add(this.txtStop);
             this.tabPage3.Controls.Add(this.txtPlayList);
             this.tabPage3.Controls.Add(this.txtPause);
@@ -310,7 +359,7 @@ namespace MPlayerFront
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(409, 167);
+            this.tabPage3.Size = new System.Drawing.Size(409, 203);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Play Back";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -420,48 +469,38 @@ namespace MPlayerFront
             this.openFileDialog1.ShowReadOnly = true;
             this.openFileDialog1.Title = "Choose the path of plink.exe";
             // 
-            // button2
+            // label15
             // 
-            this.button2.Location = new System.Drawing.Point(345, 144);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(52, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Browse";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(19, 116);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(91, 13);
+            this.label15.TabIndex = 7;
+            this.label15.Text = "Playing Channels:";
             // 
-            // txtKeyFile
+            // chkChannel1
             // 
-            this.txtKeyFile.Location = new System.Drawing.Point(127, 145);
-            this.txtKeyFile.Name = "txtKeyFile";
-            this.txtKeyFile.Size = new System.Drawing.Size(215, 20);
-            this.txtKeyFile.TabIndex = 6;
+            this.chkChannel1.AutoSize = true;
+            this.chkChannel1.Checked = true;
+            this.chkChannel1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkChannel1.Location = new System.Drawing.Point(126, 116);
+            this.chkChannel1.Name = "chkChannel1";
+            this.chkChannel1.Size = new System.Drawing.Size(74, 17);
+            this.chkChannel1.TabIndex = 8;
+            this.chkChannel1.Text = "Channel 1";
+            this.chkChannel1.UseVisualStyleBackColor = true;
             // 
-            // label8
+            // chkChannel2
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(22, 149);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(87, 13);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Path of Key File :";
-            // 
-            // txtPort
-            // 
-            this.txtPort.Location = new System.Drawing.Point(127, 119);
-            this.txtPort.Name = "txtPort";
-            this.txtPort.Size = new System.Drawing.Size(270, 20);
-            this.txtPort.TabIndex = 5;
-            this.txtPort.Validating += new System.ComponentModel.CancelEventHandler(this.txtPort_Validating);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(22, 123);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(29, 13);
-            this.label14.TabIndex = 10;
-            this.label14.Text = "Port:";
+            this.chkChannel2.AutoSize = true;
+            this.chkChannel2.Checked = true;
+            this.chkChannel2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkChannel2.Location = new System.Drawing.Point(213, 116);
+            this.chkChannel2.Name = "chkChannel2";
+            this.chkChannel2.Size = new System.Drawing.Size(74, 17);
+            this.chkChannel2.TabIndex = 9;
+            this.chkChannel2.Text = "Channel 2";
+            this.chkChannel2.UseVisualStyleBackColor = true;
             // 
             // SettingsFrm
             // 
@@ -537,5 +576,8 @@ namespace MPlayerFront
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtKeyFile;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox chkChannel2;
+        private System.Windows.Forms.CheckBox chkChannel1;
+        private System.Windows.Forms.Label label15;
     }
 }
