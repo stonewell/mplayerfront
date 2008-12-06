@@ -166,9 +166,9 @@ namespace MPlayerFront
 
             cmdFileName_ = CreateTempFileName(cmd, arguments);
 
-            p.StartInfo.Arguments = cmdStr + " -m " +
-                cmdFileName_;
-
+            p.StartInfo.Arguments = cmdStr + " -m \"" +
+                cmdFileName_ + "\"";
+            
             p.Exited += new EventHandler(Process_Exited);
 
             return p;
